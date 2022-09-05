@@ -16,5 +16,39 @@ namespace Opakovani_pole_string
         {
             InitializeComponent();
         }
+
+        private string[] p = { }; 
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            string str = textBox1.Text;
+            string nejkratsi = "";
+            while (str.Contains("  "))
+            {
+                str = str.Replace("  ", " ");
+            }
+            str = str.Trim();
+            textBox1.Text = str;
+            char[] separator = { ' ', ',', '.' };
+            p = str.Split(separator, StringSplitOptions.RemoveEmptyEntries);
+            listBox1.Items.Clear();
+
+
+            for (int i = 0; i < str.Length; i++)
+            {
+
+                if (str[i] < nejkratsi.Length)
+                {
+                    nejkratsi = str[i].ToString();
+                }
+            }
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
