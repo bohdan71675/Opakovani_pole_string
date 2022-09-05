@@ -22,12 +22,14 @@ namespace Opakovani_pole_string
         {
             int pocetRadku = textBox1.Lines.Count();
             string[] p = new string[pocetRadku];
+
             for (int i = 0; i < textBox1.Lines.Count(); i++)
             {
                 string radek = textBox1.Lines[i];
                 char[] separator = { ' ', ',', '.' };
                 string[] str = radek.Split(separator, StringSplitOptions.RemoveEmptyEntries);
                 string nejkratsi = str[0];
+                listBox1.Items.Clear();
 
                 for (int j = 0; j < str.Length; j++)
                 {
@@ -36,6 +38,7 @@ namespace Opakovani_pole_string
                         nejkratsi = str[j];
                     }
                 }
+
                 p[i] = nejkratsi;
                 listBox1.Items.Add(p[i]);
             }
@@ -46,11 +49,13 @@ namespace Opakovani_pole_string
             prvniCifra = "";
             konciPodRetezcem = "";
             bool nalezenaCifra = false;
+
             for (int i = 0; i < pole.Length; i++)
             {
                 string slovo = pole[i];
                 for (int j = 0; j < slovo.Length && !nalezenaCifra; j++)
                 {
+
                     if (char.IsDigit(slovo[j]))
                     {
                         prvniCifra = slovo;
@@ -70,6 +75,7 @@ namespace Opakovani_pole_string
             string podretezec = "an";
             string prvniCifra = "";
             string konciPodRetezcem = "";
+
             ZpracujPole(pole, podretezec, out prvniCifra, out konciPodRetezcem);
             MessageBox.Show("\n\nPrvní slovo s cifrou je: " + prvniCifra
                 + "\n\nPosledni retezec ktery konci podretezcem " + konciPodRetezcem);
