@@ -57,7 +57,7 @@ namespace Opakovani_pole_string
                         nalezenaCifra = true;
                     }
                 }
-                if (slovo.Contains(podretezec))
+                if (slovo.EndsWith(podretezec))
                 {
                     konciPodRetezcem = slovo;
                 }
@@ -66,8 +66,8 @@ namespace Opakovani_pole_string
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string[] pole = { "Ananas", "Banan", "Jablko", "Hruska" };
-            string podretezec = "nan";
+            string[] pole = { "Anan4s", "Kaban", "Banan", "Jablk0", "Hruska" };
+            string podretezec = "an";
             string prvniCifra = "";
             string konciPodRetezcem = "";
             ZpracujPole(pole, podretezec, out prvniCifra, out konciPodRetezcem);
